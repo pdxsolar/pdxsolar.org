@@ -1,0 +1,71 @@
+{
+  "provider": "Portland General Electric",
+  "effective_date": "2025-01-01",
+  "currency": "USD",
+  "rate_unit": "USD_per_kWh",
+  "plans": [
+    {
+      "id": "schedule_7_standard",
+      "name": "Standard Residential Service",
+      "description": "Fixed rate plan with consistent pricing 24/7.",
+      "basic_charge_monthly": 13.0,
+      "rates": {
+        "all_day": {
+          "total_rate": 0.17204,
+          "components": {
+            "base_energy": 0.0354,
+            "transmission": 0.00862,
+            "distribution": 0.07014,
+            "adjustment_schedule_125": 0.05788
+          }
+        }
+      }
+    },
+    {
+      "id": "schedule_7_tou",
+      "name": "Time of Day (TOD) Portfolio Option",
+      "description": "Variable rate plan based on time of use.",
+      "basic_charge_monthly": 13.0,
+      "schedule": {
+        "weekdays": [
+          { "start": "00:00", "end": "07:00", "period": "off_peak" },
+          { "start": "07:00", "end": "17:00", "period": "mid_peak" },
+          { "start": "17:00", "end": "21:00", "period": "on_peak" },
+          { "start": "21:00", "end": "24:00", "period": "off_peak" }
+        ],
+        "weekends_and_holidays": [
+          { "start": "00:00", "end": "24:00", "period": "off_peak" }
+        ]
+      },
+      "rates": {
+        "off_peak": {
+          "total_rate": 0.09082,
+          "components": {
+            "base_energy": 0.02153,
+            "transmission": 0.0037,
+            "distribution": 0.0304,
+            "adjustment_schedule_125": 0.03519
+          }
+        },
+        "mid_peak": {
+          "total_rate": 0.16992,
+          "components": {
+            "base_energy": 0.035,
+            "transmission": 0.0085,
+            "distribution": 0.0692,
+            "adjustment_schedule_125": 0.05722
+          }
+        },
+        "on_peak": {
+          "total_rate": 0.43889,
+          "components": {
+            "base_energy": 0.08104,
+            "transmission": 0.0247,
+            "distribution": 0.2006,
+            "adjustment_schedule_125": 0.13255
+          }
+        }
+      }
+    }
+  ]
+}
